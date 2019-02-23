@@ -77,7 +77,7 @@ const Confirm: React.FunctionComponent<IProps> = props => {
 };
 Confirm.defaultProps = {
   cancelCaption: "Cancel",
-  okCaption: "Okay"
+  okCaption: "OK"
 };
 
 const ConfirmMemo = React.memo(Confirm);

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import logo from "../../logo.svg";
 import "./App.css";
 import Confirm from "../Confirm/Confirm";
 
@@ -81,8 +81,8 @@ class App extends Component<{}, IState> {
             open={this.state.confirmOpen}
             title="React and TypeScript"
             content="Use React and TypeScript?"
-            cancelCaption="No way"
-            okCaption="Yes please!"
+            cancelCaption="No"
+            okCaption="Yes"
             onCancelClick={this.handleCancelConfirmClick}
             onOkClick={this.handleOkConfirmClick}
           />
