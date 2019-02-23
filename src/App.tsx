@@ -77,7 +77,7 @@ class App extends Component<{}, IState> {
           <Confirm
             open={this.state.confirmOpen}
             title="React and TypeScript"
-            content="Are you sure you want to learn React and TypeScript?"
+            content="Use React and TypeScript?"
             cancelCaption="No way"
             okCaption="Yes please!"
             onCancelClick={this.handleCancelConfirmClick}
@@ -95,7 +95,7 @@ class App extends Component<{}, IState> {
 
   private handleCancelConfirmClick = () => {
     this.setState({
-      confirmMessage: "Take a break, I'm sure you will later ...",
+      confirmMessage: "Take a break",
       confirmOpen: false
     });
     clearInterval(this.timer);
@@ -103,7 +103,7 @@ class App extends Component<{}, IState> {
 
   private handleOkConfirmClick = () => {
     this.setState({
-      confirmMessage: "Cool, carry on reading!",
+      confirmMessage: "Keep reading!",
       confirmOpen: false
     });
     clearInterval(this.timer);
@@ -121,7 +121,7 @@ class App extends Component<{}, IState> {
         if (this.state.countDown <= 0) {
           clearInterval(this.timer);
           this.setState({
-            confirmMessage: "Too late to confirm!",
+            confirmMessage: "Too late to confirm",
             confirmVisible: false
           });
         }
