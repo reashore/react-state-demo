@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Confirm from "./Confirm";
+import Confirm from "../Confirm/Confirm";
 
 interface IState {
   confirmOpen: boolean;
@@ -19,7 +19,7 @@ class App extends Component<{}, IState> {
   private timer: number = 0;
   private renderCount = 0;
 
-  constructor(props: {}) {
+  public constructor(props: {}) {
     super(props);
     this.state = {
       confirmMessage: "Please hit the confirm button",
@@ -117,7 +117,7 @@ class App extends Component<{}, IState> {
       {
         confirmMessage: `Please hit the confirm button ${
           this.state.countDown
-        } secs to go`,
+        } seconds remaining`,
         countDown: this.state.countDown - 1
       },
       () => {
