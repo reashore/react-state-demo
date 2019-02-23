@@ -9,13 +9,16 @@ interface IState {
   confirmVisible: boolean;
   countDown: number;
 }
+
 class App extends Component<{}, IState> {
   public static getDerivedStateFromProps(props: {}, state: IState) {
     console.log("getDerivedStateFromProps", props, state);
     return null;
   }
+
   private timer: number = 0;
   private renderCount = 0;
+
   constructor(props: {}) {
     super(props);
     this.state = {
