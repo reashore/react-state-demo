@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import logo from "../../logo.svg";
 import "./App.css";
 import Confirm from "../Confirm/Confirm";
+import PageHeader from "../PageHeader/PageHeader";
+import PageBody from "../PageBody/PageBody";
 
 interface IState {
   confirmOpen: boolean;
@@ -46,9 +47,16 @@ class App extends Component<{}, IState> {
     prevState: IState,
     snapshot: number
   ) {
-    console.log("componentDidUpdate", prevProps, prevState, snapshot, {
+    const renderCount = {
       renderCount: this.renderCount
-    });
+    };
+    console.log(
+      "componentDidUpdate",
+      prevProps,
+      prevState,
+      snapshot,
+      renderCount
+    );
   }
 
   public componentWillUnmount() {
@@ -58,35 +66,16 @@ class App extends Component<{}, IState> {
   public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <p>{this.state.confirmMessage}</p>
-        {this.state.confirmVisible && (
-          <button onClick={this.handleConfirmClick}>Confirm</button>
-        )}
-        {this.state.countDown > 0 && (
-          <Confirm
-            open={this.state.confirmOpen}
-            title="React and TypeScript"
-            content="Use React and TypeScript?"
-            cancelCaption="No"
-            okCaption="Yes"
-            onCancelClick={this.handleCancelConfirmClick}
-            onOkClick={this.handleOkConfirmClick}
-          />
-        )}
+        <PageHeader />
+        <PageBody
+          confirmMessage={this.state.confirmMessage}
+          confirmVisible={this.state.confirmVisible}
+          confirmOpen={this.state.confirmOpen}
+          countDown={this.state.countDown}
+          handleConfirmClick={this.handleConfirmClick}
+          handleCancelConfirmClick={this.handleCancelConfirmClick}
+          handleOkConfirmClick={this.handleOkConfirmClick}
+        />
       </div>
     );
   }
